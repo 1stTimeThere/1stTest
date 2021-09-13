@@ -17,9 +17,10 @@ import java.util.UUID;
 @AllArgsConstructor
 @NoArgsConstructor
 public class News {
-    @Id
+
     //@GeneratedValue
     //private UUID id;
     private Date date;
+    @Id
     private String text;
 }
