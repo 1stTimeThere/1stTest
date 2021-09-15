@@ -16,6 +16,7 @@ import java.util.Date;
 
 @Service
 public class MainService {
+
     public MainService(@Autowired NewsRepository newsRepository) throws IOException {
         Document doc = Jsoup.connect("https://lenta.ru/")
                 .get();
@@ -31,8 +32,9 @@ public class MainService {
                 Date date = new SimpleDateFormat("HH:mm, dd MMMM yyyy").parse(dateTime.trim());
                 News news1 = new News(date, text.substring(5));
                 newsRepository.save(news1);
+                System.out.println(news1);
                 SaveCount++;
-                if (SaveCount == 4) return;
+                if (SaveCount == 3) return;
             } catch(Exception e){
                 break;
             }
